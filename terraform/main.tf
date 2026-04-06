@@ -1,30 +1,31 @@
-provider "aws" {
-  region = "ap-south-1"
-}
+terraform {
+  required_version = ">= 1.5.0"
 
-variable "queue_names" {
-  type    = list(string)
-  default = ["order-queue", "payment-queue", "notification-queue"]
-}
-
-resource "aws_sqs_queue" "queues" {
-  for_each = toset(var.queue_names)
-
-  name                       = each.value
-  delay_seconds              = 0
-  max_message_size           = 262144
-  message_retention_seconds  = 345600
-  visibility_timeout_seconds = 30
-
-  tags = {
-    Environment = "dev"
-    ManagedBy   = "terraform"
+  required_providers {
+    null = {
+      source  = "hashicorp/null"
+      version = "~> 3.2"
+    }
   }
 }
 
-output "queue_urls" {
-  value = {
-    for q in aws_sqs_queue.queues :
-    q.name => q.id
+variable "policy_test_mode" {
+  description = "Set to allow to pass policy, deny to fail policy."
+  type        = string
+  default     = "deny"
+
+  validation {
+    condition     = contains(["allow", "deny"], var.policy_test_mode)
+    error_message = "policy_test_mode must be allow or deny."
   }
+}
+
+resource "null_resource" "policy_probe" {
+  triggers = {
+    policy_test_mode = var.policy_test_mode
+  }
+}
+
+output "policy_test_mode" {
+  value = null_resource.policy_probe.triggers.policy_test_mode
 }
