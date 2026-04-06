@@ -2,30 +2,29 @@ terraform {
   required_version = ">= 1.5.0"
 
   required_providers {
-    null = {
-      source  = "hashicorp/null"
-      version = "~> 3.2"
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 5.0"
     }
   }
 }
 
-variable "policy_test_mode" {
-  description = "Set to allow to pass policy, deny to fail policy."
-  type        = string
-  default     = "deny"
-
-  validation {
-    condition     = contains(["allow", "deny"], var.policy_test_mode)
-    error_message = "policy_test_mode must be allow or deny."
-  }
+provider "aws" {
+  region                      = "us-east-1"
+  access_key                  = "mock_access_key"
+  secret_key                  = "mock_secret_key"
+  skip_credentials_validation = true
+  skip_metadata_api_check     = true
+  skip_requesting_account_id  = true
 }
 
-resource "null_resource" "policy_probe" {
-  triggers = {
-    policy_test_mode = var.policy_test_mode
-  }
+variable "key_algorithm" {
+  type    = string
+  default = "RSA_2048"
 }
 
-output "policy_test_mode" {
-  value = null_resource.policy_probe.triggers.policy_test_mode
+resource "aws_acm_certificate" "test_cert" {
+  domain_name       = "example.com"
+  validation_method = "DNS"
+  key_algorithm     = var.key_algorithm
 }
