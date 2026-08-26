@@ -14,10 +14,6 @@
 #          permitted_public_security_group_rule_range block.
 ################################################################################
 
-provider "aws" {
-  region = "us-east-1"
-}
-
 # *** TRIGGER ***
 # block_public_security_group_rules = true means the policy evaluates
 # is_permitted_range. But no 'permitted_public_security_group_rule_range'

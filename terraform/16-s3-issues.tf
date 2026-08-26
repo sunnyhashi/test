@@ -24,14 +24,6 @@
 #        b) If public_access_block = null (not a list), null[0] panics.
 ################################################################################
 
-provider "aws" {
-  region = "us-east-1"
-
-  # Required for s3control resources
-  default_tags {
-    tags = { Environment = "test" }
-  }
-}
 
 # *** TRIGGER 1: s3-bucket-blacklisted-actions-prohibited ***
 # An aws_s3_bucket_policy in a destroy plan has policy = null.

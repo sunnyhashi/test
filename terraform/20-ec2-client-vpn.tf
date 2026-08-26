@@ -11,9 +11,6 @@
 # TRIGGER: An aws_ec2_client_vpn_endpoint WITHOUT a connection_log_options block.
 ################################################################################
 
-provider "aws" {
-  region = "us-east-1"
-}
 
 # Existing ACM certificate (referenced by ARN, not created inline, so no
 # file() calls that would fail during terraform plan).

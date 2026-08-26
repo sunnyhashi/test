@@ -11,9 +11,7 @@
 #          blocks. The [0] index panic occurs during policy evaluation.
 ################################################################################
 
-provider "aws" {
-  region = "us-east-1"
-}
+
 
 resource "aws_cloudfront_distribution" "no_ordered_behaviors" {
   enabled             = true

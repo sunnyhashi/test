@@ -19,9 +19,7 @@
 #   non_compliant_listeners = [for listener in attrs.listener : ...]  <-- panic
 ################################################################################
 
-provider "aws" {
-  region = "us-east-1"
-}
+
 
 # Valid Classic ELB with an HTTP-only listener (also fails the policy enforce
 # condition for elb-tls-https-listeners-only). Run 'terraform plan -destroy'

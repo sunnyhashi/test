@@ -10,11 +10,6 @@
 #
 # TRIGGER: An aws_vpn_connection with NO tunnel log option blocks defined.
 ################################################################################
-
-provider "aws" {
-  region = "us-east-1"
-}
-
 resource "aws_vpn_gateway" "example" {
   vpc_id = "vpc-00000000000000000"
 }

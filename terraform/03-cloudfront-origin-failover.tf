@@ -15,9 +15,6 @@
 #   default_cache_target = core::try(attrs.default_cache_behavior[0].target_origin_id, "")
 ################################################################################
 
-provider "aws" {
-  region = "us-east-1"
-}
 
 # Valid CloudFront distribution with no origin_group configured.
 # Run 'terraform plan -destroy' to trigger the default_cache_behavior[0] panic.

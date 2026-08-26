@@ -10,10 +10,6 @@
 # TRIGGER: An aws_mq_broker with engine_type = "ActiveMQ" and NO logs block.
 ################################################################################
 
-provider "aws" {
-  region = "us-east-1"
-}
-
 # *** TRIGGER ***
 # engine_type = "ActiveMQ" means the policy filter passes.
 # No 'logs' block is defined, producing logs = [].

@@ -15,9 +15,6 @@
 #          an import stub with configuration not yet specified.
 ################################################################################
 
-provider "aws" {
-  region = "us-east-1"
-}
 
 # *** TRIGGER ***
 # During 'terraform plan -destroy', attrs.configuration is null.

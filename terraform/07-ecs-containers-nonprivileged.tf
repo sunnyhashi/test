@@ -19,10 +19,6 @@
 #            runtime_platform block.
 ################################################################################
 
-provider "aws" {
-  region = "us-east-1"
-}
-
 # *** TRIGGER 1: jsondecode on null ***
 # During 'terraform destroy', the plan represents container_definitions as null
 # (the resource is being removed). The policy evaluates locals before the

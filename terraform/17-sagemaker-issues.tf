@@ -17,9 +17,6 @@
 #      when production_variants is null.
 ################################################################################
 
-provider "aws" {
-  region = "us-east-1"
-}
 
 # *** TRIGGER 1: network_config[0] panic ***
 # The 'network_config' block is present but has no attribute content.

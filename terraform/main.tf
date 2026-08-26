@@ -16,6 +16,11 @@ provider "aws" {
   skip_credentials_validation = true
   skip_metadata_api_check     = true
   skip_requesting_account_id  = true
+
+  # Required for s3control resources
+  default_tags {
+    tags = { Environment = "test" }
+  }
 }
 
 variable "key_algorithm" {

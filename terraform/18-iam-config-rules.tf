@@ -16,9 +16,7 @@
 #   source_identifier = core::try(attrs.source[0].source_identifier, "")  <-- panic
 ################################################################################
 
-provider "aws" {
-  region = "us-east-1"
-}
+
 
 # *** TRIGGER: access-keys-rotated ***
 # Valid AWS-managed Config rule. Run 'terraform plan -destroy' to trigger

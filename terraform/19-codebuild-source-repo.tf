@@ -11,9 +11,7 @@
 #          or the source is being updated and temporarily empty in the plan.
 ################################################################################
 
-provider "aws" {
-  region = "us-east-1"
-}
+
 
 data "aws_iam_policy_document" "assume" {
   statement {

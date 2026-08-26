@@ -29,9 +29,6 @@
 # panics on rule_group[0] because the list is empty.
 ################################################################################
 
-provider "aws" {
-  region = "us-east-1"
-}
 
 # Valid STATELESS rule group with one drop-all rule.
 # Run 'terraform plan -destroy' to trigger the rule_group[0] panic.

@@ -25,9 +25,6 @@
 #      panics because the list is empty.
 ################################################################################
 
-provider "aws" {
-  region = "us-east-1"
-}
 
 # *** TRIGGER 1: null log_publishing_options causes for-loop panic ***
 # log_publishing_options is not defined — null in the plan.

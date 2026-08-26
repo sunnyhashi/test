@@ -10,9 +10,6 @@
 # TRIGGER: An aws_launch_template resource with NO metadata_options block.
 ################################################################################
 
-provider "aws" {
-  region = "us-east-1"
-}
 
 # *** TRIGGER ***
 # No 'metadata_options' block is defined.

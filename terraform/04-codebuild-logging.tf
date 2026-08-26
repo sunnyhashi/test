@@ -13,9 +13,7 @@
 # TRIGGER: An aws_codebuild_project with NO logs_config block defined.
 ################################################################################
 
-provider "aws" {
-  region = "us-east-1"
-}
+
 
 data "aws_iam_policy_document" "assume_role" {
   statement {

@@ -17,10 +17,6 @@
 # panics on settings[0] because the list is empty.
 ################################################################################
 
-provider "aws" {
-  region = "us-east-1"
-}
-
 resource "aws_api_gateway_rest_api" "example" {
   name = "example-api"
 }

@@ -12,10 +12,6 @@
 # TRIGGER: An aws_elasticsearch_domain with NO cluster_config block.
 ################################################################################
 
-provider "aws" {
-  region = "us-east-1"
-}
-
 # *** TRIGGER ***
 # No 'cluster_config' block is defined.
 # core::try(attrs.cluster_config, []) returns [] (the fallback).

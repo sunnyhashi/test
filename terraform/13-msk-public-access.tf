@@ -14,9 +14,6 @@
 #   connectivity_info = core::try(attrs.broker_node_group_info[0].connectivity_info, [])
 ################################################################################
 
-provider "aws" {
-  region = "us-east-1"
-}
 
 # Valid MSK cluster with public access disabled (no connectivity_info block).
 # Run 'terraform plan -destroy' to trigger the broker_node_group_info[0] panic.
