@@ -2589,7 +2589,7 @@ variable "db_password" {
   description = "Master password for RDS/Redshift/DocumentDB resources"
   type        = string
   sensitive   = true
-  default     = "Ch@ngeMe2024!"
+  default     = "ChangeMe2024"
 }
 
 variable "availability_zones" {
