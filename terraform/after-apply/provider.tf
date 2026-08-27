@@ -11,9 +11,10 @@ terraform {
   }
 }
 
-# Default provider — uses whatever region is configured in the environment
-# (AWS_DEFAULT_REGION / AWS_REGION env var, or ~/.aws/config).
-provider "aws" {}
+# Default provider
+provider "aws" {
+  region = "us-east-1"
+}
 
 # Route 53 query logging CloudWatch log groups MUST be created in us-east-1
 # regardless of the workload region.  The alias is referenced by:
