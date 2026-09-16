@@ -6,6 +6,10 @@ terraform {
       source  = "hashicorp/aws"
       version = "~> 5.0"
     }
+    azurerm = {
+      source  = "hashicorp/azurerm"
+      version = "~> 3.0"
+    }
   }
 }
 
@@ -21,6 +25,28 @@ provider "aws" {
   default_tags {
     tags = { Environment = "test" }
   }
+}
+
+provider "azurerm" {
+  features {}
+
+  subscription_id            = var.azure_subscription_id
+  skip_provider_registration = true
+}
+
+variable "azure_subscription_id" {
+  type    = string
+  default = "00000000-0000-0000-0000-000000000000"
+}
+
+variable "azure_location" {
+  type    = string
+  default = "eastus"
+}
+
+resource "azurerm_resource_group" "test" {
+  name     = "azure-resource-test"
+  location = var.azure_location
 }
 
 variable "key_algorithm" {
