@@ -33,3 +33,9 @@ resource "aws_acm_certificate" "test_cert" {
   validation_method = "DNS"
   key_algorithm     = var.key_algorithm
 }
+
+# Intentionally violates acl_prohibited even though the canned ACL is private.
+resource "aws_s3_bucket" "acl_policy_failure" {
+  bucket_prefix = "acl-policy-failure-"
+  acl           = "private"
+}
